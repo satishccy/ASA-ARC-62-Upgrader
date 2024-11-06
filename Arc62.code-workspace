@@ -1,0 +1,48 @@
+{
+  "folders": [
+    {
+      "path": "./",
+      "name": "ROOT"
+    },
+    {
+      "path": "./projects/Arc62-contracts"
+    },
+    {
+      "path": "./projects/Arc62-frontend"
+    },
+    {
+      "path": "."
+    },
+    {
+      "path": "projects/Arc62-frontend"
+    },
+    {
+      "path": "projects/Arc62-contracts"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "projects/": true
+    },
+    "jest.disabledWorkspaceFolders": [
+      "ROOT",
+      "projects"
+    ],
+    "dotenv.enableAutocloaking": false
+  },
+  "extensions": {
+    "recommendations": [
+      "joshx.workspace-terminals"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": []
+  },
+  "launch": {
+    "configurations": []
+  }
+}
