@@ -132,7 +132,7 @@ const App = () => {
         const g = await Caller.getGlobalState();
         console.log(g);
 
-        const gl = await Caller.appClient.getGlobalState();
+        const gl: any = await Caller.appClient.getGlobalState();
         if (gl.asset_id.value !== assetId) {
           toast.error("Invalid app id mentioned in the asset");
           return;
