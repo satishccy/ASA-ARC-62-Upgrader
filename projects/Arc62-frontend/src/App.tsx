@@ -283,17 +283,15 @@ const App = () => {
     <>
       <>
         <section className="header_section" id="header_section">
-          <div className="sticky_nav"></div>
-          <a className="cmpny_name">Arc62 Backward Compatibility Dapp</a>
-
+          <div className="sticky_nav">
+            <a className="cmpny_name">Arc62 Backward Compatibility Dapp</a>
+          </div>
           <div className="header_wrapper">
             <div className="first_wrap">
               <input
-                style={{ height: "34px" }}
                 value={assetId}
                 onChange={(e) => setAssetId(parseInt(e.target.value))}
                 type="number"
-                placeholder="Asset ID"
               />
               <select onChange={(e) => setNetwork(e.target.value)}>
                 <option value="testnet">Testnet</option>

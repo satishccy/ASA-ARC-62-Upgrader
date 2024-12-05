@@ -1,22 +1,25 @@
 /* styles/Header.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body {
-  font-family: Arial, sans-serif;
+*{
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+}
+
+
+body {
   background-color: #f4f4f9;
   color: #333;
 }
 
 /* Header Section */
 .header_section {
-  background-color: #0052cc;
-  color: #ffffff;
   padding: 20px 0;
   position: fixed;
   width: 100%;
   top: 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 100;
   text-align: center;
 }
@@ -28,13 +31,22 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: auto;
-  margin-top: 18px;
+  margin-top: 20px;
+}
+
+.sticky_nav{
+  background-color: #003a8c;
+  padding: 10px 20px;
+  border-radius: 6px;
+  width: 90%;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cmpny_name {
   font-size: 24px;
   font-weight: bold;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-decoration: none;
   color: #ffffff;
 }
@@ -43,6 +55,14 @@ body {
   display: flex;
   align-items: center;
   gap: 34px;
+}
+
+.first_wrap > input, .first_wrap > select{
+  background-color: transparent;
+  color: #003a8c;
+  border: 2px solid #003a8c;
+  padding: 10px 20px;
+  border-radius: 4px;
 }
 
 .input_div {
@@ -54,17 +74,16 @@ body {
 }
 
 .input_div label {
-  font-size: 16px;
   color: #ffffff;
 }
 
-.input_div input {
+/* .input_div input {
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ddd;
   font-size: 16px;
   width: 80%;
-}
+} */
 
 .fetch_asset_btn,
 .connect_wallet_btn {
@@ -80,7 +99,7 @@ body {
 
 .fetch_asset_btn:hover,
 .connect_wallet_btn:hover {
-  background-color: #005bb5;
+  background-color: #003a8c;
 }
 
 .second_wrap {
@@ -174,17 +193,12 @@ body {
 
 /* Dropdown and Select Styles */
 select {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
   cursor: pointer;
   transition: border-color 0.3s;
 }
 
 select:focus {
-  border-color: #0052cc;
+  border-color: #003a8c;
   outline: none;
 }
 
