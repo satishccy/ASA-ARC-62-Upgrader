@@ -212,6 +212,10 @@ select:focus {
   outline: none;
 }
 
+.asset_ifo_div {
+  margin-top: 10rem;
+}
+
 /* Modal Styles */
 .connect_wallet_btn {
   padding: 10px 15px;
@@ -249,7 +253,7 @@ input::-webkit-inner-spin-button {
 
   .asset_info {
     width: 90%;
-    padding-top: 8rem !important;
+    padding-top: 0rem !important;
   }
 
   .first_wrap > input,
@@ -259,5 +263,13 @@ input::-webkit-inner-spin-button {
 
   .cmpny_name {
     font-size: 18px;
+  }
+
+  .header_section {
+    position: static;
+  }
+
+  .asset_ifo_div {
+    margin-top: 10px;
   }
 }

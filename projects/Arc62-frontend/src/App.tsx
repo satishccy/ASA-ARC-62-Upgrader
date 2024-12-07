@@ -306,7 +306,7 @@ const App = () => {
             </div>
           </div>
         </section>
-        <div style={{ marginTop: "140px" }}>
+        <div className="asset_ifo_div">
           {manager && (
             <div className="asset_info">
               <h1>Asset Info</h1>
