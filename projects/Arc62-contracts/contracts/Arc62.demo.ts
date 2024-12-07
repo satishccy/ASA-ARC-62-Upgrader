@@ -60,9 +60,9 @@ async function acceptAndReceiveTokens(
   const testnetClient = await algokit.AlgorandClient.testNet();
 
   const newAsset = algosdk.makeAssetCreateTxnWithSuggestedParamsFromObject({
-    assetName: 'ARC62 Demo',
-    unitName: 'ARC62',
-    total: 10,
+    assetName: 'AlgoGuy',
+    unitName: 'AG',
+    total: 1_000_000,
     decimals: 0,
     from: admin.addr,
     defaultFrozen: false,
@@ -81,14 +81,16 @@ async function acceptAndReceiveTokens(
 
   const assetId = txInfo['asset-index'];
 
-  await acceptAndReceiveTokens(admin, a1, assetId, 2);
-  console.log(`a1: ${a1.addr} sennt 2 tokens`);
-  await acceptAndReceiveTokens(admin, a2, assetId, 2);
-  console.log(`a2: ${a2.addr} sennt 2 tokens`);
-  await acceptAndReceiveTokens(admin, a3, assetId, 1);
-  console.log(`a3: ${a3.addr} sennt 1 tokens`);
-  await acceptAndReceiveTokens(admin, a4, assetId, 4);
-  console.log(`a4: ${a4.addr} sennt 4 tokens`);
+  await acceptAndReceiveTokens(admin, a1, assetId, 3_50_000);
+  console.log(`sent 3_50_000 AlgoGuy Tokens to user [${a1.addr}]`);
+  await acceptAndReceiveTokens(admin, a2, assetId, 1_00_000);
+  console.log(`sent 1_00_000 AlgoGuy Tokens to generic address [${a2.addr}]`);
+  await acceptAndReceiveTokens(admin, a3, assetId, 50_000);
+  console.log(`sent 50_000 AlgoGuy Tokens to burn address [${a3.addr}]`);
+  await acceptAndReceiveTokens(admin, a4, assetId, 1_00_000);
+  console.log(`sent 1_00_000 AlgoGuy Tokens to lock address [${a4.addr}]`);
+
+  console.log(`Kept 4_00_000 AlgoGuy Tokens in reserve address [${admin.addr}]`);
 
   console.log('Tokens sent');
 })();
