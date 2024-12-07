@@ -1,13 +1,12 @@
 /* styles/Header.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-*{
+* {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
-
 
 body {
   background-color: #f4f4f9;
@@ -22,6 +21,7 @@ body {
   top: 0;
   z-index: 100;
   text-align: center;
+  background-color: #f4f4f9;
 }
 
 .header_wrapper {
@@ -34,7 +34,7 @@ body {
   margin-top: 20px;
 }
 
-.sticky_nav{
+.sticky_nav {
   background-color: #003a8c;
   padding: 10px 20px;
   border-radius: 6px;
@@ -57,12 +57,14 @@ body {
   gap: 34px;
 }
 
-.first_wrap > input, .first_wrap > select{
+.first_wrap > input,
+.first_wrap > select {
   background-color: transparent;
   color: #003a8c;
   border: 2px solid #003a8c;
   padding: 10px 20px;
   border-radius: 4px;
+  font-weight: bold;
 }
 
 .input_div {
@@ -75,6 +77,13 @@ body {
 
 .input_div label {
   color: #ffffff;
+}
+
+.input_1 {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 600;
 }
 
 /* .input_div input {
@@ -138,6 +147,7 @@ body {
 .asset_info label {
   font-size: 16px;
   color: #555;
+  font-weight: bold;
 }
 
 .asset_info input[type="number"],
@@ -215,6 +225,13 @@ select:focus {
   background-color: #003a8c;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   .header_wrapper {
@@ -223,10 +240,24 @@ select:focus {
   }
 
   .first_wrap {
-    margin-top: 15px;
+    /* margin-top: 15px; */
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 20px 0px;
   }
 
   .asset_info {
     width: 90%;
+    padding-top: 8rem !important;
+  }
+
+  .first_wrap > input,
+  .first_wrap > select {
+    width: 80%;
+  }
+
+  .cmpny_name {
+    font-size: 18px;
   }
 }

@@ -288,11 +288,7 @@ const App = () => {
           </div>
           <div className="header_wrapper">
             <div className="first_wrap">
-              <input
-                value={assetId}
-                onChange={(e) => setAssetId(parseInt(e.target.value))}
-                type="number"
-              />
+              <input value={assetId} onChange={(e) => setAssetId(parseInt(e.target.value))} type="number" />
               <select onChange={(e) => setNetwork(e.target.value)}>
                 <option value="testnet">Testnet</option>
                 <option value="mainnet">Mainnet</option>
@@ -332,15 +328,15 @@ const App = () => {
               </p>
               <p>
                 <p>
-                  <strong>Manager:</strong> {manager}
+                  <strong>Manager:</strong> {`${manager.slice(0, 5)}......${manager.slice(-5)}`}
                 </p>
-                <strong>Reserve:</strong> {assetData.reserve}
+                <strong>Reserve:</strong> {`${assetData.reserve.slice(0, 5)}......${assetData.reserve.slice(-5)}`}
               </p>
               <p>
-                <strong>Freeze:</strong> {assetData.freeze}
+                <strong>Freeze:</strong> {`${assetData.freeze.slice(0, 5)}......${assetData.freeze.slice(-5)}`}
               </p>
               <p>
-                <strong>Clawback:</strong> {assetData.clawback}
+                <strong>Clawback:</strong> {`${assetData.clawback.slice(0, 5)}......${assetData.clawback.slice(-5)}`}
               </p>
               <p>
                 <strong>ARC62 Compatiable:</strong> {isArc62 !== 0 ? "Yes" : "No"}
@@ -371,15 +367,15 @@ const App = () => {
                 <>
                   <div className="input_div">
                     <label>Burner Address</label>
-                    <input value={burnerAddress} onChange={(e) => setBurnerAddress(e.target.value)} />
+                    <input value={burnerAddress} onChange={(e) => setBurnerAddress(e.target.value)} className="input_1" />
                   </div>
                   <div className="input_div">
                     <label>Locked Address</label>
-                    <input value={lockedAddress} onChange={(e) => setLockedAddress(e.target.value)} />
+                    <input value={lockedAddress} onChange={(e) => setLockedAddress(e.target.value)} className="input_1" />
                   </div>
                   <div className="input_div">
                     <label>Generic Address</label>
-                    <input value={genericAddress} onChange={(e) => setGenericAddress(e.target.value)} />
+                    <input value={genericAddress} onChange={(e) => setGenericAddress(e.target.value)} className="input_1" />
                   </div>
                   <button disabled={isMakingarc62Compatiable == "" ? false : true} onClick={(_) => makeArc62Compatiable()}>
                     {isMakingarc62Compatiable == "" ? "Make Arc62 Compatiable" : isMakingarc62Compatiable}
