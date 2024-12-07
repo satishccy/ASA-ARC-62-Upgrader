@@ -83,12 +83,12 @@ async function acceptAndReceiveTokens(
 
   await acceptAndReceiveTokens(admin, a1, assetId, 3_50_000);
   console.log(`sent 3_50_000 AlgoGuy Tokens to user [${a1.addr}]`);
-  await acceptAndReceiveTokens(admin, a2, assetId, 1_00_000);
-  console.log(`sent 1_00_000 AlgoGuy Tokens to generic address [${a2.addr}]`);
   await acceptAndReceiveTokens(admin, a3, assetId, 50_000);
   console.log(`sent 50_000 AlgoGuy Tokens to burn address [${a3.addr}]`);
   await acceptAndReceiveTokens(admin, a4, assetId, 1_00_000);
   console.log(`sent 1_00_000 AlgoGuy Tokens to lock address [${a4.addr}]`);
+  await acceptAndReceiveTokens(admin, a2, assetId, 1_00_000);
+  console.log(`sent 1_00_000 AlgoGuy Tokens to generic address [${a2.addr}]`);
 
   console.log(`Kept 4_00_000 AlgoGuy Tokens in reserve address [${admin.addr}]`);
 
