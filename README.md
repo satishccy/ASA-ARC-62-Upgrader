@@ -1,45 +1,160 @@
-# Arc62
+# ARC62 Backward Compatibility DApp
 
-This starter full stack project has been generated using AlgoKit. See below for default getting started instructions.
+### **Circulating Supply Getter for Algorand Standard Assets (ASA)**
 
-## Setup
+This project provides a standardized method to retrieve the circulating supply of Algorand Standard Assets (ASA) in compliance with the ARC-62 proposal. It aims to enhance transparency, consistency, and usability within the Algorand ecosystem by enabling precise and customizable definitions of circulating supply.
 
-### Initial setup
-1. Clone this repository to your local machine.
-2. Ensure [Docker](https://www.docker.com/) is installed and operational. Then, install `AlgoKit` following this [guide](https://github.com/algorandfoundation/algokit-cli#install).
-3. Run `algokit project bootstrap all` in the project directory. This command sets up your environment by installing necessary dependencies, setting up a Python virtual environment, and preparing your `.env` file.
-4. In the case of a smart contract project, execute `algokit generate env-file -a target_network localnet` from the `Arc62-contracts` directory to create a `.env.localnet` file with default configuration for `localnet`.
-5. To build your project, execute `algokit project run build`. This compiles your project and prepares it for running.
-6. For project-specific instructions, refer to the READMEs of the child projects:
-   - Smart Contracts: [Arc62-contracts](projects/Arc62-contracts/README.md)
-   - Frontend Application: [Arc62-frontend](projects/Arc62-frontend/README.md)
+---
 
-> This project is structured as a monorepo, refer to the [documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/project/run.md) to learn more about custom command orchestration via `algokit project run`.
+## **Features**
 
-### Subsequently
+- **ARC-62 Compliance**: Implements the `arc62_get_circulating_supply` ABI method to calculate and retrieve the ASA circulating supply.
+- **Customizable Definitions**: Supports exclusions such as burned, locked, and other non-circulating balances.
+- **Seamless Compatibility**: Integrates with existing Algorand standards, including ARC-3, ARC-19, and ARC-69.
+- **Auto-Discovery**: Automatically identifies and retrieves external references needed for calculation.
+- **Open Source**: Fully open-source, encouraging community contributions and adoption.
 
-1. If you update to the latest source code and there are new dependencies, you will need to run `algokit project bootstrap all` again.
-2. Follow step 3 above.
+---
 
-## Tools
+## **Tech Stack**
 
-This project makes use of Python and React to build Algorand smart contracts and to provide a base project configuration to develop frontends for your Algorand dApps and interactions with smart contracts. The following tools are in use:
+- **Blockchain**: Algorand
+- **Smart Contracts**: TEALScript
+- **Development Tools**:
+  - [js-algorand-sdk](https://github.com/algorand/js-algorand-sdk)
+  - [use-wallet](https://github.com/TxnLab/use-wallet)
+  - [Algokit 2.0](https://github.com/algorandfoundation/algokit-cli)
+- **Version Control**: GitHub
 
-- Algorand, AlgoKit, and AlgoKit Utils
-- Python dependencies including Poetry, Black, Ruff or Flake8, mypy, pytest, and pip-audit
-- React and related dependencies including AlgoKit Utils, Tailwind CSS, daisyUI, use-wallet, npm, jest, playwright, Prettier, ESLint, and Github Actions workflows for build validation
+---
 
-### VS Code
+## **Getting Started**
 
-It has also been configured to have a productive dev experience out of the box in [VS Code](https://code.visualstudio.com/), see the [backend .vscode](./backend/.vscode) and [frontend .vscode](./frontend/.vscode) folders for more details.
+### **1. Online Demonstration**
+The application is hosted on GitHub Pages and can be accessed [here](https://satishccy.github.io/Arc62-Backward-Compatibility-Dapp/). Explore how this tool simplifies fetching and verifying the circulating supply of ARC-62 compatible assets.
 
-## Integrating with smart contracts and application clients
+### **2. Local Setup** *(Optional)*
 
-Refer to the [Arc62-contracts](projects/Arc62-contracts/README.md) folder for overview of working with smart contracts, [projects/Arc62-frontend](projects/Arc62-frontend/README.md) for overview of the React project and the [projects/Arc62-frontend/contracts](projects/Arc62-frontend/src/contracts/README.md) folder for README on adding new smart contracts from backend as application clients on your frontend. The templates provided in these folders will help you get started.
-When you compile and generate smart contract artifacts, your frontend component will automatically generate typescript application clients from smart contract artifacts and move them to `frontend/src/contracts` folder, see [`generate:app-clients` in package.json](projects/Arc62-frontend/package.json). Afterwards, you are free to import and use them in your frontend application.
+#### **Prerequisites**
+- [Algokit Version 2.0](https://developer.algorand.org/docs/get-started/algokit/)
+- [Node.js v20.11](https://nodejs.org/en)
 
-The frontend starter also provides an example of interactions with your ArcClient in [`AppCalls.tsx`](projects/Arc62-frontend/src/components/AppCalls.tsx) component by default.
+#### **Steps**
 
-## Next Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/satishccy/Arc62-Backward-Compatibility-Dapp.git && cd Arc62-Backward-Compatibility-Dapp
+   ```
 
-You can take this project and customize it to build your own decentralized applications on Algorand. Make sure to understand how to use AlgoKit and how to write smart contracts for Algorand before you start.
+2. Start the Algokit Localnet:
+   ```bash
+   algokit localnet reset
+   ```
+
+3. Compile the smart contracts:
+   ```bash
+   cd projects/Arc62-contracts && npm install && npm run build
+   ```
+
+4. Return to the root directory:
+   ```bash
+   cd ../..
+   ```
+
+5. Install frontend dependencies and run the application:
+   ```bash
+   cd projects/Arc62-frontend && npm install && npm run dev
+   ```
+
+   The frontend will be available at [http://localhost:5173/](http://localhost:5173/).
+
+---
+
+## **Usage Instructions**
+
+### **As an Asset Manager** *(Making an Asset ARC-62 Compatible)*
+
+#### **1. Connect Wallet**
+- Click the "Connect Wallet" option in the header.
+- ![image](https://github.com/user-attachments/assets/57475315-4a46-4886-93db-ee80adb1ed0c)
+
+#### **2. Fetch Asset**
+- Enter the asset ID managed by your connected wallet.
+- Select the network (e.g., TestNet, MainNet) from the dropdown menu.
+- Click the "Fetch Asset" button.
+- ![image](https://github.com/user-attachments/assets/bec73c03-4be9-4474-91a9-2505bff95390)
+
+#### **3. Make ARC-62 Compatible**
+- If the asset is not ARC-62 compatible, input the following addresses:
+  - **Burner Address**: Address holding burned tokens.
+  - **Locked Address**: Address holding locked tokens.
+  - **Generic Address**: Address holding other non-circulating tokens.
+- Click "Make ARC-62 Compatible" and sign the transactions in your wallet.
+- ![image](https://github.com/user-attachments/assets/6dcb3cd1-4f3c-4cbc-9d3f-0f0e72382647)
+- ![image](https://github.com/user-attachments/assets/5baa3efe-45be-47d8-adde-bdcf20ebb37e)
+
+#### **4. Retrieve Circulating Supply**
+- After compatibility is established, click "Get Circulating Supply" and sign the transaction to retrieve the current circulating supply.
+- ![image](https://github.com/user-attachments/assets/5b768772-0802-4c15-adce-dd1feaa81756)
+
+
+### **As a Normal User** *(Checking Circulating Supply of an ARC-62 Compatible Asset)*
+
+1. **Connect Wallet**:
+   - Click the "Connect Wallet" option in the header.
+   - ![image](https://github.com/user-attachments/assets/57475315-4a46-4886-93db-ee80adb1ed0c)
+
+2. **Fetch Asset**:
+   - Enter the asset ID and select the network from the dropdown.
+   - Click the "Fetch Asset" button.
+   - ![image](https://github.com/user-attachments/assets/bec73c03-4be9-4474-91a9-2505bff95390)
+
+3. **Get Circulating Supply**:
+   - If the asset is ARC-62 compatible, click "Get Circulating Supply" and sign the transaction to view the circulating supply.
+   - If the asset is not compatible, no further action is available.
+   - ![image](https://github.com/user-attachments/assets/5b768772-0802-4c15-adce-dd1feaa81756)
+
+---
+
+## **How to Use**
+
+### **For Developers**
+- Integrate the `arc62_get_circulating_supply` method into your ASA projects to dynamically retrieve circulating supply.
+- Extend or modify the logic to suit specific use cases, such as regulated assets or gaming tokens.
+
+### **For Wallet/Explorer Providers**
+- Use the getter method to display accurate circulating supply information for users.
+
+### **For Asset Issuers**
+- Customize circulating supply definitions by assigning dedicated addresses for non-circulating balances (e.g., burned or locked tokens).
+
+---
+
+## **Contributing**
+
+We welcome contributions to improve the project! Follow these steps:
+
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add feature-name'
+   ```
+4. Push the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request on GitHub.
+
+---
+
+## **License**
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+Feel free to reach out via [email](mailto:satishchoudhari13579@gmail.com) for questions, suggestions, or collaboration opportunities.
+
