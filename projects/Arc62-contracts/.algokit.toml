@@ -1,5 +1,5 @@
 [algokit]
-min_version = "v2.0.0"
+min_version = "v2.5.2"
 
 [project]
 type = 'contract'
@@ -7,7 +7,7 @@ name = 'Arc62-contracts'
 artifacts = 'contracts/artifacts'
 
 [project.run]
-build = { commands = [ 
+build = { commands = [
   'npm run build',
 ], description = 'Build all smart contracts in the project' }
 test = { commands = [

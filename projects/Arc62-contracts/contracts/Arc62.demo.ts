@@ -10,8 +10,8 @@ async function acceptAndReceiveTokens(
   const testnetClient = algokit.AlgorandClient.testNet();
 
   const optin = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
-    from: receiver.addr,
-    to: receiver.addr,
+    sender: receiver.addr,
+    receiver: receiver.addr,
     assetIndex: assetId,
     amount: 0,
     suggestedParams: await testnetClient.client.algod.getTransactionParams().do(),
@@ -21,8 +21,8 @@ async function acceptAndReceiveTokens(
   await testnetClient.client.algod.sendRawTransaction(signedTxn).do();
 
   const assetTransferTxn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
-    from: sender.addr,
-    to: receiver.addr,
+    sender: sender.addr,
+    receiver: receiver.addr,
     assetIndex: assetId,
     amount,
     suggestedParams: await testnetClient.client.algod.getTransactionParams().do(),
@@ -57,14 +57,14 @@ async function acceptAndReceiveTokens(
   const a4 = algosdk.mnemonicToSecretKey(
     'ritual argue brisk squeeze round trouble west myself believe scout shy bamboo life more jacket wagon top crazy elder tooth paddle any correct absorb acquire'
   );
-  const testnetClient = await algokit.AlgorandClient.testNet();
+  const testnetClient = algokit.AlgorandClient.testNet();
 
   const newAsset = algosdk.makeAssetCreateTxnWithSuggestedParamsFromObject({
     assetName: 'AlgoGuy',
     unitName: 'AG',
     total: 1_000_000,
     decimals: 0,
-    from: admin.addr,
+    sender: admin.addr,
     defaultFrozen: false,
     manager: admin.addr,
     reserve: admin.addr,
@@ -77,9 +77,9 @@ async function acceptAndReceiveTokens(
   await testnetClient.client.algod.sendRawTransaction(signedTxn).do();
   const txInfo = await algosdk.waitForConfirmation(testnetClient.client.algod, newAsset.txID(), 3);
 
-  console.log('Asset ID: ', txInfo['asset-index']);
+  console.log('Asset ID: ', txInfo.assetIndex);
 
-  const assetId = txInfo['asset-index'];
+  const assetId = Number(txInfo.assetIndex!);
 
   await acceptAndReceiveTokens(admin, a1, assetId, 3_50_000);
   console.log(`sent 3_50_000 AlgoGuy Tokens to user [${a1.addr}]`);

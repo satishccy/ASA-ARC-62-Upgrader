@@ -1,0 +1,62 @@
+{
+  "name": "CirculatingSupply",
+  "desc": "",
+  "methods": [
+    {
+      "name": "createApplication",
+      "args": [],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "set_asset",
+      "desc": "Set the ASA ID for the circulating supply - Authorization: ASA Manager Address",
+      "args": [
+        {
+          "name": "asset_id",
+          "type": "uint64",
+          "desc": "ASA ID of the circulating supply"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "set_not_circulating_address",
+      "desc": "Set non-circulating supply addresses - Authorization: ASA Manager Address",
+      "args": [
+        {
+          "name": "address",
+          "type": "address",
+          "desc": "Address to assign to the label to"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "desc": "Not-circulating label selector"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "arc62_get_circulating_supply",
+      "desc": "Get ASA circulating supply",
+      "readonly": true,
+      "args": [
+        {
+          "name": "asset_id",
+          "type": "uint64",
+          "desc": "ASA ID of the circulating supply"
+        }
+      ],
+      "returns": {
+        "type": "uint64",
+        "desc": "ASA circulating supply"
+      }
+    }
+  ]
+}
