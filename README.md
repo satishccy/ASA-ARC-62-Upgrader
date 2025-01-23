@@ -4,6 +4,8 @@
 
 This project provides a standardized method to retrieve the circulating supply of Algorand Standard Assets (ASA) in compliance with the ARC-62 proposal. It aims to enhance transparency, consistency, and usability within the Algorand ecosystem by enabling precise and customizable definitions of circulating supply.
 
+For detailed information and specifications, refer to the official [ARC-62 documentation.](https://arc.algorand.foundation/ARCs/arc-0062)
+
 ---
 
 ## **Features**
