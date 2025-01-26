@@ -284,7 +284,7 @@ const App = () => {
       <>
         <section className="header_section" id="header_section">
           <div className="sticky_nav">
-            <a className="cmpny_name">Arc62 Backward Compatibility Dapp</a>
+            <a className="cmpny_name">ASA ARC62 Upgrader</a>
           </div>
           <div className="header_wrapper">
             <div className="first_wrap">

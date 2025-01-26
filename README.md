@@ -1,4 +1,4 @@
-# ARC62 Backward Compatibility DApp
+# ASA ARC62 Upgrader DApp
 
 ### **Circulating Supply Getter for Algorand Standard Assets (ASA)**
 
@@ -33,7 +33,7 @@ For detailed information and specifications, refer to the official [ARC-62 docum
 ## **Getting Started**
 
 ### **1. Online Demonstration**
-The application is hosted on GitHub Pages and can be accessed [here](https://satishccy.github.io/Arc62-Backward-Compatibility-Dapp/). Explore how this tool simplifies fetching and verifying the circulating supply of ARC-62 compatible assets.
+The application is hosted on GitHub Pages and can be accessed [here](https://satishccy.github.io/ASA-ARC-62-Upgrader/). Explore how this tool simplifies fetching and verifying the circulating supply of ARC-62 compatible assets.
 
 ### **2. Local Setup** *(Optional)*
 
@@ -45,7 +45,7 @@ The application is hosted on GitHub Pages and can be accessed [here](https://sat
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/satishccy/Arc62-Backward-Compatibility-Dapp.git && cd Arc62-Backward-Compatibility-Dapp
+   git clone git@github.com:satishccy/ASA-ARC-62-Upgrader.git && cd ASA-ARC-62-Upgrader
    ```
 
 2. Start the Algokit Localnet:
